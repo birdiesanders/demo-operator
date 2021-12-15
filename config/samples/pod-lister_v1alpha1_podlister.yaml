@@ -1,0 +1,6 @@
+apiVersion: pod-lister.example.com/v1alpha1
+kind: PodLister
+metadata:
+  name: podlister-sample
+spec:
+  # Add fields here
