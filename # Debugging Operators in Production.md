@@ -7,5 +7,7 @@
 * Fix the Bug!
 
 ### Sidenotes on the following
-* Remote development environments
+* "Remote" development environments
 * code-server
+* I have a turtle, and a kitten named kubelet
+
