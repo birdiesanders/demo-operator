@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"time"
 
 	//"k8s.io/apimachinery/pkg/labels"
 	//types "k8s.io/apimachinery/pkg/types"
@@ -51,6 +52,9 @@ type PodListerReconciler struct {
 //+kubebuilder:rbac:groups=core,resources=pods,verbs=get;list;watch;
 //+kubebuilder:rbac:groups=core,resources=pod,verbs=get;list;watch;
 //+kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;
+const (
+	deploymentName = "ngin"
+)
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -58,6 +62,16 @@ type PodListerReconciler struct {
 // the PodLister object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
+//
+
+// -----------------------------------------------
+// -----------------------------------------------
+// -----------------------------------------------
+// -----------------------------------------------
+// -----------------------------------------------
+// -----------------------------------------------
+// -----------------------------------------------
+// -----------------------------------------------
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.10.0/pkg/reconcile
@@ -86,9 +100,9 @@ func (r *PodListerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 
 		r.Log.Info("Pod Found!", "pod", pod)
 		deployment := &appsv1.Deployment{}
-		r.Get(ctx, types.NamespacedName{Namespace: pod.Namespace, Name: "ngin"}, deployment)
+		r.Get(ctx, types.NamespacedName{Namespace: pod.Namespace, Name: deploymentName}, deployment)
 		r.Log.Info("Found deployment:", "deployment", deployment.Name)
-		r.Log.Info("--------------------------------------------------------------------------------------")
+		r.Log.Info("---------------------------------------------------------------------", "time: ", time.Now())
 	}
 
 	return ctrl.Result{}, nil

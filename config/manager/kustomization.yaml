@@ -13,7 +13,7 @@ kind: Kustomization
 images:
 - name: controller
   newName: djbird/demo-operator-bundle
-  newTag: v0.0.4
+  newTag: v0.0.6
 - name: djbird:demo-operator-bundle
   newName: controller
   newTag: latest
