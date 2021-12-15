@@ -1,0 +1,44 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: demo-operator.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: PodLister is the Schema for the podlisters API
+      displayName: Pod Lister
+      kind: PodLister
+      name: podlisters.pod-lister.example.com
+      version: v1alpha1
+  description: Lists Pods
+  displayName: podLister
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - demo
+  links:
+  - name: Demo Operator
+    url: https://demo-operator.domain
+  maturity: alpha
+  provider:
+    name: David
+  version: 0.0.0
